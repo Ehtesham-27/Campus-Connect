@@ -96,17 +96,36 @@ describe('Campus Connect — Pre-Deployment Fixes Suite (Health & Cloudinary Upl
   /* -------------------------------------------------------------------------- */
   /* 1. Health Endpoint Tests                                                   */
   /* -------------------------------------------------------------------------- */
-  it('1. should return HTTP 200 with status: healthy when database is connected', async () => {
+  it('1. should return HTTP 200 with status: healthy when database is connected on /api/v1/health', async () => {
     const res = await request(app).get('/api/v1/health');
     assert.equal(res.status, 200);
     assert.equal(res.body.success, true);
     assert.equal(res.body.data.status, 'healthy');
     assert.equal(res.body.data.database.readyState, 1);
+    assert.equal(res.body.data.service, 'Campus Connect API');
+    // Ensure credentials and uri are not exposed
+    assert.equal(res.body.data.database.password, undefined);
+    assert.equal(res.body.data.database.uri, undefined);
   });
 
   it('2. should also return HTTP 200 on convenience /health route when connected', async () => {
     const res = await request(app).get('/health');
     assert.equal(res.status, 200);
+    assert.equal(res.body.success, true);
+    assert.equal(res.body.data.status, 'healthy');
+  });
+
+  it('3. should return HTTP 200 on root GET / route when connected', async () => {
+    const res = await request(app).get('/');
+    assert.equal(res.status, 200);
+    assert.equal(res.body.success, true);
+    assert.equal(res.body.data.status, 'healthy');
+  });
+
+  it('4. should return HTTP 200 on GET /api/health route when connected', async () => {
+    const res = await request(app).get('/api/health');
+    assert.equal(res.status, 200);
+    assert.equal(res.body.success, true);
     assert.equal(res.body.data.status, 'healthy');
   });
 
@@ -211,5 +230,33 @@ describe('Campus Connect — Pre-Deployment Fixes Suite (Health & Cloudinary Upl
 
     const commInDb = await Community.findById(testCommunityId);
     assert.equal(commInDb.bannerImage, res.body.data.bannerImage);
+  });
+
+  /* -------------------------------------------------------------------------- */
+  /* 3. Disconnected Database Health Check Tests (HTTP 503)                     */
+  /* -------------------------------------------------------------------------- */
+  it('10. should return HTTP 503 across all health endpoints when MongoDB is disconnected', async () => {
+    // Disconnect mongoose to simulate DB outage
+    await mongoose.disconnect();
+    try {
+      const endpoints = ['/', '/health', '/api/health', '/api/v1/health'];
+      for (const ep of endpoints) {
+        const res = await request(app).get(ep);
+        assert.equal(res.status, 503, `Endpoint ${ep} must return HTTP 503 when disconnected`);
+        assert.equal(res.body.success, false);
+        assert.equal(res.body.statusCode, 503);
+        assert.equal(res.body.data.status, 'unhealthy');
+        assert.notEqual(res.body.data.database.readyState, 1);
+        assert.match(res.body.message, /database is disconnected or unavailable/i);
+        // Ensure no internal errors or credentials exposed
+        assert.equal(res.body.data.database.password, undefined);
+        assert.equal(res.body.data.database.uri, undefined);
+      }
+    } finally {
+      // Reconnect to leave environment clean
+      if (mongoServer) {
+        await mongoose.connect(mongoServer.getUri());
+      }
+    }
   });
 });

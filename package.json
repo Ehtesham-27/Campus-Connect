@@ -5,6 +5,8 @@
   "type": "module",
   "description": "Campus Connect - College Student Community Platform",
   "scripts": {
+    "start": "node backend/src/server.js",
+    "build": "npm install --prefix backend",
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
     "dev:backend": "npm run dev --prefix backend",
     "dev:frontend": "npm run dev --prefix frontend",

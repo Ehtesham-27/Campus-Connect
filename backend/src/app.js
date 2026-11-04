@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import { ENV } from './config/env.js';
 import routes from './routes/index.js';
 import healthRoutes from './routes/healthRoutes.js';
+import { getHealth } from './controllers/healthController.js';
 import { notFoundHandler } from './middleware/notFoundMiddleware.js';
 import { errorHandler } from './middleware/errorMiddleware.js';
 import { csrfProtection } from './middleware/csrfProtection.js';
@@ -47,7 +48,11 @@ app.use(csrfProtection);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Root health check convenience route
+// Health check endpoints (root, convenience, and versioned paths)
+app.get('/', getHealth);
+app.get('/health', getHealth);
+app.get('/api/health', getHealth);
+app.get('/api/v1/health', getHealth);
 app.use('/health', healthRoutes);
 
 // Versioned API routes (/api/v1) and convenience alias (/api)
