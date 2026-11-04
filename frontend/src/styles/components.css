@@ -1,0 +1,351 @@
+/**
+ * Campus Connect — Maximalist Component Styles
+ */
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.cc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: var(--border-thick) solid var(--color-ink-black);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-bounce);
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+}
+
+.cc-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
+}
+
+.cc-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-xs);
+}
+
+.cc-btn:focus-visible {
+  outline: 3px solid var(--color-electric-blue);
+  outline-offset: 3px;
+}
+
+.cc-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Button Sizes */
+.cc-btn-sm {
+  padding: 0.45rem 0.85rem;
+  font-size: var(--text-xs);
+  border-radius: var(--radius-sm);
+}
+
+.cc-btn-md {
+  padding: 0.65rem 1.25rem;
+  font-size: var(--text-sm);
+}
+
+.cc-btn-lg {
+  padding: 0.85rem 1.75rem;
+  font-size: var(--text-body);
+  border-radius: var(--radius-lg);
+}
+
+/* Button Variants */
+.cc-btn-primary {
+  background-color: var(--color-electric-blue);
+  color: var(--color-white);
+}
+
+.cc-btn-orange {
+  background-color: var(--color-vivid-orange);
+  color: var(--color-white);
+}
+
+.cc-btn-yellow {
+  background-color: var(--color-bright-yellow);
+  color: var(--color-ink-black);
+}
+
+.cc-btn-pink {
+  background-color: var(--color-hot-pink);
+  color: var(--color-ink-black);
+}
+
+.cc-btn-purple {
+  background-color: var(--color-deep-purple);
+  color: var(--color-white);
+}
+
+.cc-btn-outline {
+  background-color: var(--color-white);
+  color: var(--color-ink-black);
+}
+
+.cc-btn-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--color-ink-black);
+}
+
+.cc-btn-ghost:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-color: var(--color-ink-black);
+  box-shadow: var(--shadow-xs);
+}
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+.cc-card {
+  position: relative;
+  background-color: var(--color-white);
+  border: var(--border-thick) solid var(--color-ink-black);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-5);
+  transition: var(--transition-bounce);
+  overflow: hidden;
+}
+
+.cc-card-interactive {
+  cursor: pointer;
+}
+
+.cc-card-interactive:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Card Surfaces */
+.cc-card-cream {
+  background-color: var(--color-cream);
+}
+
+.cc-card-blue {
+  background-color: var(--color-electric-blue);
+  color: var(--color-white);
+}
+
+.cc-card-yellow {
+  background-color: var(--color-bright-yellow);
+  color: var(--color-ink-black);
+}
+
+.cc-card-pink {
+  background-color: var(--color-hot-pink);
+  color: var(--color-ink-black);
+}
+
+.cc-card-purple {
+  background-color: var(--color-deep-purple);
+  color: var(--color-white);
+}
+
+.cc-card-orange {
+  background-color: var(--color-vivid-orange);
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   BADGES & STICKERS
+   ========================================================================== */
+.cc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: var(--border-thin) solid var(--color-ink-black);
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+}
+
+.cc-badge-sm {
+  padding: 0.15rem 0.5rem;
+  font-size: 0.68rem;
+}
+
+.cc-badge-lg {
+  padding: 0.35rem 0.85rem;
+  font-size: var(--text-sm);
+}
+
+.cc-badge-shadow {
+  box-shadow: var(--shadow-xs);
+}
+
+.cc-badge-blue {
+  background-color: var(--color-electric-blue);
+  color: var(--color-white);
+}
+
+.cc-badge-yellow {
+  background-color: var(--color-bright-yellow);
+  color: var(--color-ink-black);
+}
+
+.cc-badge-orange {
+  background-color: var(--color-vivid-orange);
+  color: var(--color-white);
+}
+
+.cc-badge-pink {
+  background-color: var(--color-hot-pink);
+  color: var(--color-ink-black);
+}
+
+.cc-badge-purple {
+  background-color: var(--color-deep-purple);
+  color: var(--color-white);
+}
+
+.cc-badge-cream {
+  background-color: var(--color-cream);
+  color: var(--color-ink-black);
+}
+
+.cc-badge-black {
+  background-color: var(--color-ink-black);
+  color: var(--color-white);
+}
+
+.cc-badge-white {
+  background-color: var(--color-white);
+  color: var(--color-ink-black);
+}
+
+/* Playful Sticker Transform */
+.cc-sticker {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: var(--border-thick) solid var(--color-ink-black);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  transform: rotate(-2deg);
+  transition: transform 0.15s ease;
+}
+
+.cc-sticker:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.cc-sticker-rotate-right {
+  transform: rotate(3deg);
+}
+
+.cc-sticker-rotate-right:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* ==========================================================================
+   INPUTS & FORMS
+   ========================================================================== */
+.cc-input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--color-ink-black);
+  background-color: var(--color-white);
+  border: var(--border-thick) solid var(--color-ink-black);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  transition: var(--transition-fast);
+}
+
+.cc-input:focus {
+  outline: none;
+  box-shadow: 4px 4px 0px var(--color-electric-blue);
+  border-color: var(--color-ink-black);
+}
+
+.cc-input::placeholder {
+  color: var(--color-ink-subtle);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   AVATARS
+   ========================================================================== */
+.cc-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: var(--border-thick) solid var(--color-ink-black);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bright-yellow);
+  color: var(--color-ink-black);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+  user-select: none;
+}
+
+.cc-avatar-circle {
+  border-radius: var(--radius-full);
+}
+
+.cc-avatar-sm {
+  width: 34px;
+  height: 34px;
+  font-size: 0.8rem;
+  border-width: var(--border-thin);
+}
+
+.cc-avatar-lg {
+  width: 56px;
+  height: 56px;
+  font-size: 1.25rem;
+}
+
+.cc-avatar-xl {
+  width: 76px;
+  height: 76px;
+  font-size: 1.75rem;
+}
+
+.cc-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cc-avatar-status {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-success, #36856D);
+  border: 2px solid var(--color-ink-black);
+  border-radius: var(--radius-full);
+}
+

@@ -1,0 +1,102 @@
+/**
+ * Campus Connect — Modern Corporate Design System Tokens
+ * Source of truth: frontend.md and idea.md
+ */
+
+:root {
+  /* Modern Corporate Brand Color Palette */
+  --color-electric-blue: #243B53;  /* Primary Navy */
+  --color-vivid-orange: #486581;   /* Steel Blue */
+  --color-bright-yellow: #E8EEF4;  /* Soft Blue Surface */
+  --color-hot-pink: #62A6A0;       /* Soft Teal */
+  --color-deep-purple: #334E68;    /* Slate Navy */
+  --color-cream: #F0F4F8;          /* Main Background */
+  --color-ink-black: #263445;      /* Primary Text */
+  --color-white: #FFFFFF;          /* Surface / Cards */
+
+  /* Functional Tints & Surfaces */
+  --color-cream-subtle: #F0F4F8;
+  --color-cream-dark: #D9E2EC;     /* Border / Divider */
+  --color-ink-muted: #64748B;      /* Secondary Text */
+  --color-ink-subtle: #829AB1;     /* Subtle Text */
+  --color-surface-gray: #E8EEF4;   /* Soft Blue Surface */
+
+  /* Explicit Modern Corporate Palette Tokens */
+  --color-primary-navy: #243B53;
+  --color-steel-blue: #486581;
+  --color-soft-teal: #62A6A0;
+  --color-main-bg: #F0F4F8;
+  --color-surface-card: #FFFFFF;
+  --color-primary-text: #263445;
+  --color-secondary-text: #64748B;
+  --color-border: #D9E2EC;
+  --color-soft-blue-surface: #E8EEF4;
+  --color-soft-teal-surface: #E6F2F0;
+
+  /* Semantic Colours */
+  --color-success: #36856D;
+  --color-warning: #C18B36;
+  --color-error: #C45B5B;
+  --color-info: #4779A8;
+
+  /* Typography System */
+  --font-display: 'Archivo Black', Impact, -apple-system, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Type Scale */
+  --text-hero: clamp(2.5rem, 5vw, 4.25rem);
+  --text-page: clamp(1.85rem, 3.5vw, 2.75rem);
+  --text-section: clamp(1.35rem, 2.5vw, 1.85rem);
+  --text-card: 1.15rem;
+  --text-body: 0.95rem;
+  --text-sm: 0.825rem;
+  --text-xs: 0.725rem;
+
+  /* Border Widths */
+  --border-thin: 1.5px;
+  --border-thick: 2.5px;
+  --border-heavy: 3.5px;
+
+  /* Corner Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-full: 9999px;
+
+  /* Neo-Brutalist Maximalist Offset Shadows */
+  --shadow-xs: 2px 2px 0px var(--color-ink-black);
+  --shadow-sm: 3px 3px 0px var(--color-ink-black);
+  --shadow-md: 5px 5px 0px var(--color-ink-black);
+  --shadow-lg: 7px 7px 0px var(--color-ink-black);
+  --shadow-xl: 10px 10px 0px var(--color-ink-black);
+
+  /* Colored Glow/Offset Accents */
+  --shadow-blue: 5px 5px 0px var(--color-electric-blue);
+  --shadow-pink: 5px 5px 0px var(--color-hot-pink);
+  --shadow-yellow: 5px 5px 0px var(--color-bright-yellow);
+  --shadow-orange: 5px 5px 0px var(--color-vivid-orange);
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout Constants */
+  --sidebar-width: 270px;
+  --topbar-height: 72px;
+
+  /* Transitions */
+  --transition-fast: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
