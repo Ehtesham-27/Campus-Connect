@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://campus-connect-api.onrender.com/api/:path*"
+      "destination": "https://campus-connect-br7i.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
