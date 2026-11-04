@@ -19,6 +19,8 @@ frontend/dist/
 dist-ssr/
 frontend/dist-ssr/
 *.tsbuildinfo
+.dev-mongodb/
+backend/.dev-mongodb/
 
 # Logs
 npm-debug.log*
